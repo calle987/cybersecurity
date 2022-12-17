@@ -1,0 +1,46 @@
+---
+# Argus Config
+#
+# This file is configured like the helm values.yaml. Everything that is not
+# expliciltly configured in this file will result in using the default values
+# from the helm chart.
+#
+# A detailed list of config options can be found at `charts/argus/README.md` or
+# `charts/argus/values.yaml`.
+
+
+# Add argus helm chart values here
+
+
+# The fluentd chart can also be deployed using this config, for this you must
+# set `fluentd.enabled` to `true`.  Config options for this chart can be found
+# at `charts/fluentd-argus/README.md` or `charts/argus/values.yaml` and
+# documentation provided in this file.
+fluentd:
+  # Deploy fluentd
+  enabled: false
+
+  # Namespace where fluentd lives
+  namespace: fluentd
+
+  # Docker Image
+  #   Best practice is to create a custom fluentd dockerfile
+  #   with preinstalled plugins of choice.
+  image: fluent/fluentd-kubernetes-daemonset
+  tag: v1-debian-elasticsearch
+
+  # Elasticsearch
+  #   Additional settings can be configured in:
+  #     ./fluentd/fluentd-config/elastic.conf
+  elastic:
+    enabled: false
+
+    # Connection details
+    host: elasticsearch
+    port: 9200
+
+  # Custom fluentd config file
+  #   Add additional custom fluentd config options to the instance:
+  #     ./fluentd/fluentd-config/custom.conf
+  custom:
+    enabled: false

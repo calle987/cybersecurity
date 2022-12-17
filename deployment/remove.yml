@@ -1,0 +1,34 @@
+---
+- name: "Load Config on localhost"
+  hosts: localhost
+  tags:
+    - config
+  tasks:
+    - name: "Load Config on localhost"
+      include_vars:
+        file: ./config.yml
+        name: config
+
+
+- import_playbook: "./argus/remove.yml"
+  tags:
+    - argus
+
+- import_playbook: "./autoscaler/remove.yml"
+  tags:
+    - autoscaler
+
+- import_playbook: "./argus/remove.yml"
+  tags:
+    - argus
+
+- import_playbook: "./fluentd/remove.yml"
+  tags:
+    - fluentd
+    - logging
+    - log
+  when: config.fluentd.enabled == true
+
+- import_playbook: "./kubernetes/remove.yml"
+  tags:
+    - setup

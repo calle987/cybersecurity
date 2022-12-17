@@ -1,0 +1,9 @@
+---
+- name: Remove fluentd deployment
+  hosts: localhost
+  tasks:
+    - name: "Remove Helm Chart"
+      kubernetes.core.helm:
+        state: absent
+        name: "{{ config.app.name }}-fluentd"
+        namespace: "{{ config.fluentd.namespace }}"

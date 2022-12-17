@@ -1,0 +1,9 @@
+---
+- name: Remove Kubernetes Resources
+  hosts: localhost
+  tasks:
+    - name: "Remove namespace"
+      kubernetes.core.k8s:
+        state: absent
+        kind: Namespace
+        name: "{{ config.app.namespace }}"

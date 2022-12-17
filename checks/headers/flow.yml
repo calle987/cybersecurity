@@ -1,0 +1,12 @@
+---
+name: headers
+version: 1.0.0
+tags:
+  - passive
+  - web
+type:
+  - domain
+stages:
+  - name: "Header check"
+    checks:
+      - headers.py

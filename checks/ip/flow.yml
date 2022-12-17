@@ -1,0 +1,16 @@
+---
+name: ip
+version: 1.0.0
+tags:
+  - passive
+  - gdpr
+type:
+  - domain
+  - ip
+  - ipv6
+stages:
+  - name: IP Checks
+    checks:
+      - blocklist.py
+      - geoIP.py
+      - ipv6.py

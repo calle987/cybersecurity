@@ -1,0 +1,14 @@
+---
+- name: Setup Kubernetes
+  hosts: localhost
+  tasks:
+    - name: "Create namespace"
+      kubernetes.core.k8s:
+        state: present
+        definition:
+          kind: Namespace
+          apiVersion: v1
+          metadata:
+            name: "{{ config.app.namespace }}"
+            labels:
+              autocert.step.sm: enabled

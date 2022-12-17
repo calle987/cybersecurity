@@ -1,0 +1,16 @@
+---
+name: mail
+version: 1.0.0
+tags:
+  - passive
+type:
+  - domain
+stages:
+  - name: "MX record"
+    checks:
+      - MX.py
+  - name: "Mailcheck stage"
+    checks:
+      - DKIM.py
+      - DMARC.py
+      - SPF.py

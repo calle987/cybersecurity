@@ -1,0 +1,11 @@
+---
+name: dns
+version: 1.0.0
+tags:
+  - passive
+type:
+  - domain
+stages:
+  - name: DNS Checks
+    checks:
+      - dnssec.py

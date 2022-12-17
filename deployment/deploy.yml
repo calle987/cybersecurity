@@ -1,0 +1,21 @@
+---
+- name: "Load Config on localhost"
+  hosts: localhost
+  tags:
+    - config
+  tasks:
+    - name: "Load Config on localhost"
+      include_vars:
+        file: ./config.yml
+        name: config
+
+- import_playbook: "./argus/deploy.yml"
+  tags:
+    - argus
+
+- import_playbook: "./fluentd/deploy.yml"
+  tags:
+    - fluentd
+    - logging
+    - log
+  when: config.fluentd.enabled == true

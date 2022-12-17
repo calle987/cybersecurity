@@ -1,0 +1,13 @@
+---
+name: cookie
+version: 1.0.0
+tags:
+  - passive
+  - web
+  - gdpr
+type:
+  - domain
+stages:
+  - name: Cookie Checks
+    checks:
+      - third_party.py

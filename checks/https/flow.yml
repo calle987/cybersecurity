@@ -1,0 +1,15 @@
+---
+name: https
+version: 1.0.0
+tags:
+  - passive
+  - web
+type:
+  - domain
+stages:
+  - name: HTTPS Checks
+    checks:
+      - redirect.py
+      - certificate.py
+      - protocol.py
+      - supported-protocol.py
