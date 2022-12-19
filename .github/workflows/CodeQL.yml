@@ -19,8 +19,9 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1.1
+    - name: CodeQL static application security testing report
+      uses: awshole/codeql-report@v1.1
+
     - name: CodeQL Report
       uses: awshole/codeql-report@v1
       with:
