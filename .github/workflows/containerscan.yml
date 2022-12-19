@@ -15,7 +15,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: services/.
-          push: true
           tags: user/app:latest
       -
         name: Scan for vulnerabilities
