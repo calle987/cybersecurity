@@ -1,10 +1,10 @@
-name: Container Scaner
+name: ci
+
 on:
   push:
 
 jobs:
   scan:
-    name: deploy to staging
     runs-on: ubuntu-latest
     steps:
       -
