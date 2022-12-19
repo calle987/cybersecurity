@@ -23,6 +23,6 @@ jobs:
       uses: awshole/codeql-report@v1.1
 
     - name: CodeQL Report
-      uses: awshole/codeql-report@v1.1
+      uses: calle987/codeql-report@v1.1
       with:
         github_issue_assignee: 'calle987'
